@@ -1,0 +1,38 @@
+
+    <div>
+      <label for="nombre">Nit Emisor:</label>
+      <input id="nombre" #NitEmisor name="nombre" >
+    </div>
+    
+    <div>
+      <label for="fechaInicio">Fecha de Inicio:</label>
+      <input id="fechaInicio" #fechaInicio name="fechaInicio" type="date">
+    </div>
+    
+    <div>
+      <label for="fechaFin">Fecha de Fin:</label>
+      <input id="fechaFin" name="fechaFin" #fechaFin type="date">
+    </div>
+    
+    <button type="submit" (click)="onSubmit(NitEmisor,fechaInicio, fechaFin)">Consultar</button>
+    @if (facturas.length >= 5 ) {
+      <button type="submit" (click)="exportToXML()">Exportar XML</button>
+    }
+    
+    @if(facturas.length > 0){
+        <h1>Descripcion facturs</h1>
+        @for (factura of facturas; track $index) {
+          <div class="fact">
+            <h1> Numero factura: {{ factura.numero }}</h1>
+            <h1> Nit:Emisor {{ factura.emisor.nit }}</h1>
+            <h1> Nit:Receptor {{ factura.receptor.nit }}</h1>
+          </div>
+        }
+    }
+        
+    
+    
+        
+    
+  
+  
